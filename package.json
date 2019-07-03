@@ -1,0 +1,67 @@
+{
+  "name": "ip-address-utils",
+  "version": "1.0.0",
+  "author": "Stan Guo <shitaoguo@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oathihs/ip-address-utils.git"
+  },
+  "main": "dist/ip-address-utils.cjs.js",
+  "module": "dist/ip-address-utils.esm.js",
+  "browser": "dist/ip-address-utils.umd.js",
+  "dependencies": {
+    "ms": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.0.1",
+    "eslint-plugin-simple-import-sort": "^4.0.0",
+    "husky": "^2.4.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
+    "rollup": "^1.0.0",
+    "rollup-plugin-babel-minify": "^8.0.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "vuepress": "^1.0.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "pretest": "npm run build",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "files": [
+    "dist"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run test",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,less}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 6
+    },
+    "plugins": [
+      "simple-import-sort"
+    ],
+    "rules": {
+      "simple-import-sort/sort": "warn"
+    }
+  }
+}
