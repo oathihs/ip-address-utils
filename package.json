@@ -13,7 +13,7 @@
     "ms": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.4.5",
     "babel-jest": "^24.8.0",
     "eslint": "^6.0.1",
